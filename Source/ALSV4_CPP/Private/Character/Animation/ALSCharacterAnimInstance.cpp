@@ -38,6 +38,8 @@ void UALSCharacterAnimInstance::NativeUpdateAnimation(float DeltaSeconds)
 	CharacterInformation.AimingRotation = Character->GetAimingRotation();
 	CharacterInformation.CharacterActorRotation = Character->GetActorRotation();
 
+    UpdateValuesBPHook();
+
 	UpdateAimingValues(DeltaSeconds);
 	UpdateLayerValues();
 	UpdateFootIK(DeltaSeconds);
@@ -239,6 +241,8 @@ void UALSCharacterAnimInstance::UpdateLayerValues()
 	LayerBlendingValues.Head_Add = GetCurveValue(FName(TEXT("Layering_Head_Add")));
 	LayerBlendingValues.Arm_L_Add = GetCurveValue(FName(TEXT("Layering_Arm_L_Add")));
 	LayerBlendingValues.Arm_R_Add = GetCurveValue(FName(TEXT("Layering_Arm_R_Add")));
+    LayerBlendingValues.Legs_Add = GetCurveValue(FName(TEXT("Layering_Legs_Add"))); // Bab
+    LayerBlendingValues.Pelvis_Add = GetCurveValue(FName(TEXT("Layering_Pelvis_Add"))); // Bab
 	// Set the Hand Override weights
 	LayerBlendingValues.Hand_R = GetCurveValue(FName(TEXT("Layering_Hand_R")));
 	LayerBlendingValues.Hand_L = GetCurveValue(FName(TEXT("Layering_Hand_L")));
