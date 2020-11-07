@@ -321,6 +321,12 @@ private:
 	UPROPERTY(VisibleDefaultsOnly, BlueprintReadOnly, meta = (AllowPrivateAccess = true))
 	bool Barrel_ = false;
 
+    UPROPERTY(VisibleDefaultsOnly, BlueprintReadOnly, meta = (AllowPrivateAccess = true))
+    bool Spear_ = false;
+
+    UPROPERTY(VisibleDefaultsOnly, BlueprintReadOnly, meta = (AllowPrivateAccess = true))
+    bool DoubleSwords_ = false;
+
 public:
 	FALSOverlayState()
 	{
@@ -341,6 +347,8 @@ public:
 	FORCEINLINE const bool& Binoculars() const { return Binoculars_; }
 	FORCEINLINE const bool& Box() const { return Box_; }
 	FORCEINLINE const bool& Barrel() const { return Barrel_; }
+    FORCEINLINE const bool& Spear() const { return Spear_; }
+    FORCEINLINE const bool& DoubleSwords() const { return DoubleSwords_; }
 
 	FORCEINLINE operator EALSOverlayState() const { return State; }
 
@@ -360,6 +368,8 @@ public:
 		Binoculars_ = State == EALSOverlayState::Binoculars;
 		Box_ = State == EALSOverlayState::Box;
 		Barrel_ = State == EALSOverlayState::Barrel;
+        Spear_ = State == EALSOverlayState::Spear;
+        DoubleSwords_ = State == EALSOverlayState::DoubleSwords;
 	}
 };
 
