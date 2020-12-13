@@ -248,6 +248,9 @@ protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Configuration|Turn In Place", Meta = (ShowOnlyInnerProperties))
 	FALSAnimTurnInPlace TurnInPlaceValues;
 
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Configuration|Turn In Place")
+    bool bTurnInPlaceEnabled = true;
+
 	/** Rotate In Place */
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Configuration|Rotate In Place", Meta = (ShowOnlyInnerProperties))
 	FALSAnimRotateInPlace RotateInPlace;

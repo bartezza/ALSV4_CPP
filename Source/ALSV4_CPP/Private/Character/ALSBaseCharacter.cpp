@@ -939,7 +939,9 @@ void AALSBaseCharacter::SetEssentialValues(float DeltaTime)
 
 	// Interp AimingRotation to current control rotation for smooth character rotation movement. Decrease InterpSpeed
 	// for slower but smoother movement.
-	AimingRotation = FMath::RInterpTo(AimingRotation, ReplicatedControlRotation, DeltaTime, 30);
+	AimingRotation = FMath::RInterpTo(AimingRotation, ReplicatedControlRotation, DeltaTime, 30); // ORIG
+    // AimingRotation.Yaw = FMath::Clamp(AimingRotation.Yaw + DeltaTime * 60.0, 0.0, 360.0); // TEMP
+    // UE_LOG(LogTemp, Warning, TEXT("AimingRotation = %g, ReplicatedControlRotation = %g"), AimingRotation.Yaw, ReplicatedControlRotation.Yaw);
 
 	// These values represent how the capsule is moving as well as how it wants to move, and therefore are essential
 	// for any data driven animation system. They are also used throughout the system for various functions,

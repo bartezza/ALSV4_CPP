@@ -148,7 +148,8 @@ bool UALSCharacterAnimInstance::CanRotateInPlace() const
 
 bool UALSCharacterAnimInstance::CanTurnInPlace() const
 {
-	return RotationMode.LookingDirection() &&
+	return bTurnInPlaceEnabled &&
+        RotationMode.LookingDirection() &&
 		CharacterInformation.ViewMode == EALSViewMode::ThirdPerson &&
 		GetCurveValue(FName(TEXT("Enable_Transition"))) > 0.99f;
 }
@@ -251,6 +252,11 @@ void UALSCharacterAnimInstance::UpdateLayerValues()
 	                                                 GetCurveValue(FName(TEXT("Layering_Arm_L"))));
 	LayerBlendingValues.EnableHandIK_R = FMath::Lerp(0.0f, GetCurveValue(FName(TEXT("Enable_HandIK_R"))),
 	                                                 GetCurveValue(FName(TEXT("Layering_Arm_R"))));
+    // World-space hand IK (Bab)
+    LayerBlendingValues.EnableHandIK_WS_L = FMath::Lerp(0.0f, GetCurveValue(FName(TEXT("Enable_HandIK_WS_L"))),
+        GetCurveValue(FName(TEXT("Layering_Arm_L"))));
+    LayerBlendingValues.EnableHandIK_WS_R = FMath::Lerp(0.0f, GetCurveValue(FName(TEXT("Enable_HandIK_WS_R"))),
+        GetCurveValue(FName(TEXT("Layering_Arm_R"))));
 	// Set whether the arms should blend in mesh space or local space.
 	// The Mesh space weight will always be 1 unless the Local Space (LS) curve is fully weighted.
 	LayerBlendingValues.Arm_L_LS = GetCurveValue(FName(TEXT("Layering_Arm_L_LS")));

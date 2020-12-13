@@ -315,6 +315,12 @@ struct FALSAnimGraphLayerBlending
 
 	UPROPERTY(VisibleDefaultsOnly, BlueprintReadOnly)
 	float EnableHandIK_R = 1.0f;
+
+    UPROPERTY(VisibleDefaultsOnly, BlueprintReadOnly)
+    float EnableHandIK_WS_L = 0.0f;
+
+    UPROPERTY(VisibleDefaultsOnly, BlueprintReadOnly)
+    float EnableHandIK_WS_R = 0.0f;
 };
 
 USTRUCT(BlueprintType)

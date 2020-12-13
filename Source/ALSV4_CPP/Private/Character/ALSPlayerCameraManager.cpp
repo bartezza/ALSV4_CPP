@@ -86,7 +86,7 @@ FVector AALSPlayerCameraManager::CalculateAxisIndependentLag(FVector CurrentLoca
 	return CameraRotation.RotateVector(ResultVector);
 }
 
-bool AALSPlayerCameraManager::CustomCameraBehavior(float DeltaTime, FVector& Location, FRotator& Rotation, float& FOV)
+bool AALSPlayerCameraManager::CustomCameraBehavior_Implementation(float DeltaTime, FVector& Location, FRotator& Rotation, float& FOV)
 {
 	if (!ControlledCharacter)
 	{

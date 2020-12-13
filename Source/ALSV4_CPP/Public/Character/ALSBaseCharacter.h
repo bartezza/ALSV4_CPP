@@ -398,12 +398,16 @@ protected:
 
 	/** Input */
 
+    UFUNCTION(BlueprintCallable)
 	void PlayerForwardMovementInput(float Value);
 
+    UFUNCTION(BlueprintCallable)
 	void PlayerRightMovementInput(float Value);
 
+    UFUNCTION(BlueprintCallable)
 	void PlayerCameraUpInput(float Value);
 
+    UFUNCTION(BlueprintCallable)
 	void PlayerCameraRightInput(float Value);
 
 	void JumpPressedAction();
@@ -585,7 +589,9 @@ protected:
 
 	/** Movement System */
 
-	UPROPERTY(BlueprintReadOnly, Category = "ALS|Movement System")
+    // read-write to be able to change it dynamically (in cutscenes for example) (Bab)
+	// UPROPERTY(BlueprintReadOnly, Category = "ALS|Movement System")
+    UPROPERTY(BlueprintReadWrite, Category = "ALS|Movement System")
 	FALSMovementStateSettings MovementData;
 
 	/** Rotation System */
